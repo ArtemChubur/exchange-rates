@@ -67,36 +67,36 @@ const ExchangeRates = () => {
 
                 </div>
                 <div>
-                    <button onClick={() => {sortByPriceMax('buy_usd')}}>Сначало дороже $ покупка</button>
-                    <button onClick={() => {sortByPriceMax('sell_usd')}}>Сначало дороже $ продажа</button>
+                    <button onClick={() => sortByPriceMax('buy_usd')}>Сначало дороже $ покупка</button>
+                    <button onClick={() => sortByPriceMax('sell_usd')}>Сначало дороже $ продажа</button>
                 </div>
                 <div>
                     <button onClick={() => sortByPriceMax('buy_eur')}>Сначало дороже € покупка</button>
-                    <button onClick={() => {sortByPriceMax('sell_eur')}}>Сначало дороже € продажа</button>
+                    <button onClick={() => sortByPriceMax('sell_eur')}>Сначало дороже € продажа</button>
                 </div>
                 <div>
-                    <button onClick={() => {sortByPriceMax('buy_rub')}}>Сначало дороже ₽ покупка</button>  
+                    <button onClick={() => sortByPriceMax('buy_rub')}>Сначало дороже ₽ покупка</button>  
                     <button onClick={() => sortByPriceMax('sell_rub')}>Сначало дороже ₽ продажа</button>                    
                 </div>
                 <div>
-                    <button onClick={() => {sortByPriceMax('buy_kzt')}}>Сначало дороже ₸ покупка</button>
-                    <button onClick={() => {sortByPriceMax('sell_kzt')}}>Сначало дороже ₸ продажа</button>
+                    <button onClick={() => sortByPriceMax('buy_kzt')}>Сначало дороже ₸ покупка</button>
+                    <button onClick={() => sortByPriceMax('sell_kzt')}>Сначало дороже ₸ продажа</button>
                 </div>
                 <div>
-                    <button onClick={() => {sortByPriceMin('buy_usd')}}>Сначало дешевле $ покупка</button>
-                    <button onClick={() => {sortByPriceMin('sell_usd')}}>Сначало дешевле $ продажа</button>
+                    <button onClick={() => sortByPriceMin('buy_usd')}>Сначало дешевле $ покупка</button>
+                    <button onClick={() => sortByPriceMin('sell_usd')}>Сначало дешевле $ продажа</button>
                 </div>
                 <div>
-                    <button onClick={() => {sortByPriceMin('buy_eur')}}>Сначало дешевле € покупка</button>
-                    <button onClick={() => {sortByPriceMin('sell_eur')}}>Сначало дешевле € продажа</button>
+                    <button onClick={() => sortByPriceMin('buy_eur')}>Сначало дешевле € покупка</button>
+                    <button onClick={() => sortByPriceMin('sell_eur')}>Сначало дешевле € продажа</button>
                 </div>
                 <div>
-                    <button onClick={() => {sortByPriceMin('buy_rub')}}>Сначало дешевле ₽ покупка</button>
-                    <button onClick={() => {sortByPriceMin('sell_rub')}}>Сначало дешевле ₽ продажа</button>
+                    <button onClick={() => sortByPriceMin('buy_rub')}>Сначало дешевле ₽ покупка</button>
+                    <button onClick={() => sortByPriceMin('sell_rub')}>Сначало дешевле ₽ продажа</button>
                 </div>
                 <div>
-                    <button onClick={() => {sortByPriceMin('buy_kzt')}}>Сначало дешевле ₸ покупка</button>
-                    <button onClick={() => {sortByPriceMin('sell_kzt')}}>Сначало дешевле ₸ продажа</button>
+                    <button onClick={() => sortByPriceMin('buy_kzt')}>Сначало дешевле ₸ покупка</button>
+                    <button onClick={() => sortByPriceMin('sell_kzt')}>Сначало дешевле ₸ продажа</button>
                 </div>
             </div> : null}
 
