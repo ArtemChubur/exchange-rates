@@ -5,7 +5,6 @@ import {filterCurrentBanks} from "../../constants/filter";
 import {getCurrent} from "../../requests/getCurrent/getCurrent";
 
 const ExchangeRates = () => {
-    const TOKEN = 'yoTH6nCXCxRK9HaJdMJ4Aw3rBCcrRYpX58yjDGGXeffbae5a'
 
     const [data, setData] = useState([])
     const [data2, setData2] = useState([])
@@ -23,6 +22,7 @@ const ExchangeRates = () => {
     const [filteresEurBuyMin, setFilteresEurBuyMin] = useState(false)
     const [filteresRubBuyMin, setFilteresRubBuyMin] = useState(false)
     const [filteresKztBuyMin, setFilteresKztBuyMin] = useState(false)
+
 
     const filter = () => {
         let filteredData = data
@@ -59,47 +59,6 @@ const ExchangeRates = () => {
                setFilteresUsdBuyMax(false)
         }
     }
-
-
-
-    // const filteres_usd_buy_max = () => {
-    //         let filteredData = data
-    //         filteredData = filteredData.filter(item => item.id < banks + 1)
-    //         filteredData = filteredData.sort((a, b) => {
-    //          return (b.rates[0].buy_usd - a.rates[0].buy_usd)
-    //         })
-    //         setData(filteredData)
-    // }
-
-    // const filteres_eur_buy_max = () => {
-    //     let filteredData = data
-    //     filteredData = filteredData.filter(item => item.id < banks + 1)
-    //     filteredData = filteredData.sort((a, b) => {
-    //         return (b.rates[0].buy_eur - a.rates[0].buy_eur)
-    //     })
-    //     setData(filteredData)
-    // }
-
-    // const filteres_rub_buy_max = () => {
-    //     let filteredData = data
-    //     filteredData = filteredData.filter(item => item.id < banks + 1)
-    //     filteredData = filteredData.sort((a, b) => {
-    //      return (b.rates[0].buy_rub - a.rates[0].buy_rub)
-    //     })
-    //     setData(filteredData)
-    // }
-
-    // const filteres_kzt_buy_max = () => {
-    //     let filteredData = data
-    //     filteredData = filteredData.filter(item => item.id < banks + 1)
-    //     filteredData = filteredData.sort((a, b) => {
-    //      return (b.rates[0].buy_kzt - a.rates[0].buy_kzt)
-    //     })
-    //     setData(filteredData)
-    // }
-
-
-
 
     const filteres_usd_sell_max = () => {
         let filteredData = data
@@ -225,7 +184,16 @@ const ExchangeRates = () => {
     const handleSearchReset = async () => {
         await setSearch('');
         await getCurrent(setIsLoading, false, setData, banks)
-    };
+    }
+
+    const sortByPrice = (item) => {
+        console.log(item)
+        let sortedData = data.sort((a, b) => {
+            return (b.rates[0][item] - a.rates[0][item])
+        })
+        setData2(sortedData)
+      console.log(sortedData)
+    }
 
   return (
     <div>
@@ -253,17 +221,18 @@ const ExchangeRates = () => {
 
                 </div>
                 <div>
-                    <button onClick={() => {
-                        setFilteresUsdBuyMax(true)
-                        filter()
-                    }}>Сначало дороже $ покупка</button>
+                    <button
+                        onClick={() => sortByPrice('buy_usd')}
+                    >
+                        Сначало дороже $ покупка
+                    </button>
                     <button onClick={filteres_usd_sell_max}>Сначало дороже $ продажа</button>
                 </div>
                 <div>
-                    <button onClick={() => {
-                        setFilteresEurBuyMax(true)
-                        filter()
-                    }}>Сначало дороже € покупка</button>
+                    <button
+                        onClick={() => sortByPrice('buy_eur')}
+                    >
+                        Сначало дороже € покупка</button>
                     <button onClick={filteres_eur_sell_max}>Сначало дороже € продажа</button>
                 </div>
                 <div>
