@@ -14,169 +14,6 @@ const ExchangeRates = () => {
     const [filerMenu, setFilterMenu] = useState(false)
     const [whatData, setWhatData] = useState(true)
 
-    const [filteresUsdBuyMax, setFilteresUsdBuyMax] = useState(false)
-    const [filteresEurBuyMax, setFilteresEurBuyMax] = useState(false)
-    const [filteresRubBuyMax, setFilteresRubBuyMax] = useState(false)
-    const [filteresKztBuyMax, setFilteresKztBuyMax] = useState(false)
-    const [filteresUsdBuyMin, setFilteresUsdBuyMin] = useState(false)
-    const [filteresEurBuyMin, setFilteresEurBuyMin] = useState(false)
-    const [filteresRubBuyMin, setFilteresRubBuyMin] = useState(false)
-    const [filteresKztBuyMin, setFilteresKztBuyMin] = useState(false)
-
-
-    const filter = () => {
-        let filteredData = data
-        filteredData = filteredData.filter(item => item.id < banks + 1)
-        setWhatData(false)
-        setData2(filteredData)
-        if (filteresUsdBuyMax === true) {
-            filteredData = filteredData.sort((a, b) => {
-                return (b.rates[0].buy_usd - a.rates[0].buy_usd)
-            })
-            setFilteresEurBuyMax(false)
-            setFilteresRubBuyMax(false)
-            setFilteresKztBuyMax(false)
-        } else if (filteresEurBuyMax === true) {
-            filteredData = filteredData.sort((a, b) => {
-            return (b.rates[0].buy_eur - a.rates[0].buy_eur)
-            })
-            setFilteresUsdBuyMax(false)
-            setFilteresRubBuyMax(false)
-            setFilteresKztBuyMax(false)
-        } else if (filteresRubBuyMax === true) {
-            filteredData = filteredData.sort((a, b) => {
-                return (b.rates[0].buy_rub - a.rates[0].buy_rub)
-               })
-               setFilteresUsdBuyMax(false)
-               setFilteresEurBuyMax(false)
-               setFilteresKztBuyMax(false)
-        } else if (filteresKztBuyMax === true) {
-            filteredData = filteredData.sort((a, b) => {
-                return (b.rates[0].buy_kzt - a.rates[0].buy_kzt)
-               })
-               setFilteresEurBuyMax(false)
-               setFilteresRubBuyMax(false)
-               setFilteresUsdBuyMax(false)
-        }
-    }
-
-    const filteres_usd_sell_max = () => {
-        let filteredData = data
-        filteredData = filteredData.filter(item => item.id < banks + 1)
-        filteredData = filteredData.sort((a, b) => {
-         return (b.rates[0].buy_usd - a.rates[0].buy_usd)
-        })
-        setData(filteredData)
-    }
-
-    const filteres_eur_sell_max = () => {
-        let filteredData = data
-        filteredData = filteredData.filter(item => item.id < banks + 1)
-        filteredData = filteredData.sort((a, b) => {
-        return (b.rates[0].sell_eur - a.rates[0].sell_eur)
-        })
-        setData(filteredData)
-    }
-
-    const filteres_rub_sell_max = () => {
-        let filteredData = data
-        filteredData = filteredData.filter(item => item.id < banks + 1)
-        filteredData = filteredData.sort((a, b) => {
-        return (b.rates[0].sell_rub - a.rates[0].sell_rub)
-        })
-        setData(filteredData)
-    }
-
-    const filteres_kzt_sell_max = () => {
-        let filteredData = data
-        filteredData = filteredData.filter(item => item.id < banks + 1)
-        filteredData = filteredData.sort((a, b) => {
-        return (b.rates[0].sell_kzt - a.rates[0].sell_kzt)
-        })
-        setData(filteredData)
-    }
-
-
-
-    const filteres_usd_buy_min = () => {
-        let filteredData = data
-        filteredData = filteredData.filter(item => item.id < banks + 1)
-        filteredData = filteredData.sort((a, b) => {
-         return (a.rates[0].buy_usd - b.rates[0].buy_usd)
-        })
-        setData(filteredData)
-    }
-
-    const filteres_eur_buy_min = () => {
-        let filteredData = data
-        filteredData = filteredData.filter(item => item.id < banks + 1)
-        filteredData = filteredData.sort((a, b) => {
-        return (a.rates[0].buy_eur - b.rates[0].buy_eur)
-        })
-        setData(filteredData)
-    }
-
-    const filteres_rub_buy_min = () => {
-        let filteredData = data
-        filteredData = filteredData.filter(item => item.id < banks + 1)
-        filteredData = filteredData.sort((a, b) => {
-        return (a.rates[0].buy_rub - b.rates[0].buy_rub)
-        })
-        setData(filteredData)
-    }
-
-    const filteres_kzt_buy_min = () => {
-        let filteredData = data
-        filteredData = filteredData.filter(item => item.id < banks + 1)
-        filteredData = filteredData.sort((a, b) => {
-        return (a.rates[0].buy_kzt - b.rates[0].buy_kzt)
-        })
-        setData(filteredData)
-    }
-
-
-
-
-    const filteres_usd_sell_min = () => {
-        let filteredData = data
-        filteredData = filteredData.filter(item => item.id < banks + 1)
-        filteredData = filteredData.sort((a, b) => {
-         return (a.rates[0].buy_usd - b.rates[0].buy_usd)
-        })
-        setData(filteredData)
-    }
-
-    const filteres_eur_sell_min = () => {
-        let filteredData = data
-        filteredData = filteredData.filter(item => item.id < banks + 1)
-        filteredData = filteredData.sort((a, b) => {
-        return (a.rates[0].sell_eur - b.rates[0].sell_eur)
-        })
-        setData(filteredData)
-    }
-
-    const filteres_rub_sell_min = () => {
-        let filteredData = data
-        filteredData = filteredData.filter(item => item.id < banks + 1)
-        filteredData = filteredData.sort((a, b) => {
-        return (a.rates[0].sell_rub - b.rates[0].sell_rub)
-        })
-        setData(filteredData)
-    }
-
-    const filteres_kzt_sell_min = () => {
-        let filteredData = data
-        filteredData = filteredData.filter(item => item.id < banks + 1)
-        filteredData = filteredData.sort((a, b) => {
-        return (a.rates[0].sell_kzt - b.rates[0].sell_kzt)
-        })
-        setData(filteredData)
-    }
-
-    useEffect(() => {
-        getCurrent(setIsLoading, search, setData, banks)
-    }, [])
-
     const handleChange = async (title) => {
         await getCurrent(setIsLoading, search, setData, title)
     }
@@ -186,14 +23,23 @@ const ExchangeRates = () => {
         await getCurrent(setIsLoading, false, setData, banks)
     }
 
-    const sortByPrice = (item) => {
-        console.log(item)
-        let sortedData = data.sort((a, b) => {
+    const sortByPriceMax = (item) => {
+       let sortedData = data.sort((a, b) => {
             return (b.rates[0][item] - a.rates[0][item])
         })
         setData2(sortedData)
-      console.log(sortedData)
     }
+
+    const sortByPriceMin = (item) => {
+        let sortedData = data.sort((a, b) => {
+            return (a.rates[0][item] - b.rates[0][item])
+        })
+        setData2(sortedData)
+    }
+
+    useEffect(() => {
+        getCurrent(setIsLoading, search, setData, banks)
+    }, [])
 
   return (
     <div>
@@ -221,49 +67,36 @@ const ExchangeRates = () => {
 
                 </div>
                 <div>
-                    <button
-                        onClick={() => sortByPrice('buy_usd')}
-                    >
-                        Сначало дороже $ покупка
-                    </button>
-                    <button onClick={filteres_usd_sell_max}>Сначало дороже $ продажа</button>
+                    <button onClick={() => {sortByPriceMax('buy_usd')}}>Сначало дороже $ покупка</button>
+                    <button onClick={() => {sortByPriceMax('sell_usd')}}>Сначало дороже $ продажа</button>
                 </div>
                 <div>
-                    <button
-                        onClick={() => sortByPrice('buy_eur')}
-                    >
-                        Сначало дороже € покупка</button>
-                    <button onClick={filteres_eur_sell_max}>Сначало дороже € продажа</button>
+                    <button onClick={() => sortByPriceMax('buy_eur')}>Сначало дороже € покупка</button>
+                    <button onClick={() => {sortByPriceMax('sell_eur')}}>Сначало дороже € продажа</button>
                 </div>
                 <div>
-                    <button onClick={() => {
-                        setFilteresRubBuyMax(true)
-                        filter()
-                    }}>Сначало дороже ₽ покупка</button>  
-                    <button onClick={filteres_rub_sell_max}>Сначало дороже ₽ продажа</button>                    
+                    <button onClick={() => {sortByPriceMax('buy_rub')}}>Сначало дороже ₽ покупка</button>  
+                    <button onClick={() => sortByPriceMax('sell_rub')}>Сначало дороже ₽ продажа</button>                    
                 </div>
                 <div>
-                    <button onClick={() => {
-                        setFilteresKztBuyMax(true)
-                        filter()
-                    }}>Сначало дороже ₸ покупка</button>
-                    <button onClick={filteres_kzt_sell_max}>Сначало дороже ₸ продажа</button>
+                    <button onClick={() => {sortByPriceMax('buy_kzt')}}>Сначало дороже ₸ покупка</button>
+                    <button onClick={() => {sortByPriceMax('sell_kzt')}}>Сначало дороже ₸ продажа</button>
                 </div>
                 <div>
-                    <button onClick={filteres_usd_buy_min}>Сначало дешевле $ покупка</button>
-                    <button onClick={filteres_usd_sell_min}>Сначало дешевле $ продажа</button>
+                    <button onClick={() => {sortByPriceMin('buy_usd')}}>Сначало дешевле $ покупка</button>
+                    <button onClick={() => {sortByPriceMin('sell_usd')}}>Сначало дешевле $ продажа</button>
                 </div>
                 <div>
-                    <button onClick={filteres_eur_buy_min}>Сначало дешевле € покупка</button>
-                    <button onClick={filteres_eur_sell_min}>Сначало дешевле € продажа</button>
+                    <button onClick={() => {sortByPriceMin('buy_eur')}}>Сначало дешевле € покупка</button>
+                    <button onClick={() => {sortByPriceMin('sell_eur')}}>Сначало дешевле € продажа</button>
                 </div>
                 <div>
-                    <button onClick={filteres_rub_buy_min}>Сначало дешевле ₽ покупка</button>
-                    <button onClick={filteres_rub_sell_min}>Сначало дешевле ₽ продажа</button>
+                    <button onClick={() => {sortByPriceMin('buy_rub')}}>Сначало дешевле ₽ покупка</button>
+                    <button onClick={() => {sortByPriceMin('sell_rub')}}>Сначало дешевле ₽ продажа</button>
                 </div>
                 <div>
-                    <button onClick={filteres_kzt_buy_min}>Сначало дешевле ₸ покупка</button>
-                    <button onClick={filteres_kzt_sell_min}>Сначало дешевле ₸ продажа</button>
+                    <button onClick={() => {sortByPriceMin('buy_kzt')}}>Сначало дешевле ₸ покупка</button>
+                    <button onClick={() => {sortByPriceMin('sell_kzt')}}>Сначало дешевле ₸ продажа</button>
                 </div>
             </div> : null}
 
@@ -302,8 +135,7 @@ const ExchangeRates = () => {
                         <td>₸ продажа</td>
                     </tr>
 
-                    {whatData ? 
-                        data.map((item, idx) => {
+                    {data.map((item, idx) => {
                         return (
                             <tr key={idx}>
                                 <td>{item.title}</td>
@@ -320,25 +152,7 @@ const ExchangeRates = () => {
                                 <td>{item.rates[0].sell_kzt}</td>
                             </tr>
                         )
-                    }) : 
-                        data2.map((item, idx) => {
-                            return (
-                                <tr key={idx}>
-                                    <td>{item.title}</td>
-                                    <td>{item.rates[0].buy_usd}</td>
-                                    <td>{item.rates[0].sell_usd}</td>
-                                    <td></td>
-                                    <td>{item.rates[0].buy_eur}</td>
-                                    <td>{item.rates[0].sell_usd}</td>
-                                    <td></td>
-                                    <td>{item.rates[0].buy_rub}</td>
-                                    <td>{item.rates[0].sell_rub}</td>
-                                    <td></td>
-                                    <td>{item.rates[0].buy_kzt}</td>
-                                    <td>{item.rates[0].sell_kzt}</td>
-                                </tr>
-                            )
-                        })
+                    })
                     }
 
 
