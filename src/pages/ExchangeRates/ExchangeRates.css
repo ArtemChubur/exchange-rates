@@ -1,0 +1,12 @@
+.filtres{
+    background-color: gray;
+    height: 80vh;
+    width: 47vh;
+    position: absolute;
+    right: 0;
+    
+}
+
+.pointer{
+    cursor: pointer;
+}
