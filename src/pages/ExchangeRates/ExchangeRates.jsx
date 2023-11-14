@@ -1,7 +1,8 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import './ExchangeRates.css'
-import { da } from 'date-fns/locale'
+import {filterCurrentBanks} from "../../constants/filter";
+import {getCurrent} from "../../requests/getCurrent/getCurrent";
 
 const ExchangeRates = () => {
     const TOKEN = 'yoTH6nCXCxRK9HaJdMJ4Aw3rBCcrRYpX58yjDGGXeffbae5a'
@@ -9,7 +10,7 @@ const ExchangeRates = () => {
     const [data, setData] = useState([])
     const [data2, setData2] = useState([])
     const [search, setSearch] = useState('')
-    const [banks, setBanks] = useState(15)
+    const [banks, setBanks] = useState(20)
     const [isLoading, setIsLoading] = useState(false)
     const [filerMenu, setFilterMenu] = useState(false)
     const [whatData, setWhatData] = useState(true)
@@ -22,45 +23,6 @@ const ExchangeRates = () => {
     const [filteresEurBuyMin, setFilteresEurBuyMin] = useState(false)
     const [filteresRubBuyMin, setFilteresRubBuyMin] = useState(false)
     const [filteresKztBuyMin, setFilteresKztBuyMin] = useState(false)
-
-    const Search = async () => {
-        setIsLoading(true)
-        try {
-            const response = await axios.get('https://data.fx.kg/api/v1/current', {
-                headers: {
-                    'Authorization': `Bearer ${TOKEN}`
-                }
-            })
-            // console.log(response.data);
-            let filteredData = response.data
-            filteredData = filteredData.filter(item => item.title === search)
-            setData(filteredData)
-        } catch (error) {
-            console.log(error);
-        } finally{
-            setIsLoading(false)
-        }
-    }
-
-    const getCurrent = async () => {
-        setIsLoading(true)
-        try {
-            const response = await axios.get('https://data.fx.kg/api/v1/current', {
-                headers: {
-                    'Authorization': `Bearer ${TOKEN}`
-                }
-            })
-            // console.log(response.data);
-            let filteredData = response.data
-            filteredData = filteredData.filter(item => item.id < banks + 1)
-            setData(filteredData)
-        } catch (error) {
-            console.log(error);
-        } finally{
-            setIsLoading(false)
-        }
-    }
-
 
     const filter = () => {
         let filteredData = data
@@ -252,12 +214,18 @@ const ExchangeRates = () => {
         setData(filteredData)
     }
 
-
-
-
     useEffect(() => {
-        getCurrent()
+        getCurrent(setIsLoading, search, setData, banks)
     }, [])
+
+    const handleChange = async (title) => {
+        await getCurrent(setIsLoading, search, setData, title)
+    }
+
+    const handleSearchReset = async () => {
+        await setSearch('');
+        await getCurrent(setIsLoading, false, setData, banks)
+    };
 
   return (
     <div>
@@ -268,12 +236,21 @@ const ExchangeRates = () => {
             {filerMenu ? <div className='filtres'>
                 <button onClick={() => {setFilterMenu(false)}}>close</button>
                 <div>
+
                     <input value={search} onChange={(e) => {setSearch(`${e.target.value}`)}} type="text" />
-                    <button onClick={() => {
-                        getCurrent()
-                        setSearch('')
-                    }}>Reset</button>
-                    <button onClick={() => {Search()}}>Search</button>
+
+                    <button
+                        onClick={handleSearchReset}
+                    >
+                        Reset</button>
+
+                    <button
+                        onClick={async () => await getCurrent(setIsLoading, search, setData, banks)}
+                    >
+                        Search
+                    </button>
+
+
                 </div>
                 <div>
                     <button onClick={() => {
@@ -326,33 +303,20 @@ const ExchangeRates = () => {
             <div>Loading...</div>
             :
             <div>
-                <span>
-                    <span className='pointer' onClick={() => {
-                        setBanks(5)
-                        getCurrent()
-                    }}>5</span>
-                    <span>   </span>
-                    <span className='pointer' onClick={() => {
-                        setBanks(10)
-                        getCurrent()
-                    }}>10</span>
-                    <span>   </span>
-                    <span className='pointer' onClick={() => {
-                        setBanks(15)
-                        getCurrent()
-                    }}>15</span>
-                    <span>   </span>
-                    <span className='pointer' onClick={() => {
-                        setBanks(20)
-                        getCurrent()
-                    }}>20</span>
-                    <span>   </span>
-                    <span className='pointer' onClick={() => {
-                        setBanks(23)
-                        getCurrent()
-                    }}>Всё</span>
-                    <span>   </span>
-                </span>
+
+             <div>
+                 {filterCurrentBanks.map((item, idx) => {
+                     return (
+                         <span
+                             onClick={() => handleChange(item.title)}
+                             className='pointer'
+                             key={idx}>
+                             {item.title}
+                         </span>
+                     )
+                 })}
+             </div>
+
                 <table border='1'>
                     <tr>
                         <td>Банк</td>
