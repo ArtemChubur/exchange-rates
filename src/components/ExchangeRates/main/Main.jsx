@@ -33,6 +33,7 @@ const Main = () => {
         handleSearchReset()
         // getCurrent(setIsLoading, search, setData, banks)
         let k = data
+        setWhatData(false)
         let sortedData = k.sort((a, b) => {
             return (b.rates[0][item] - a.rates[0][item])
         })
@@ -43,7 +44,7 @@ const Main = () => {
         // getCurrent(setIsLoading, search, setData, banks)
         handleSearchReset()
         let k = data
-        // setWhatData(false)
+        setWhatData(false)
         // setData2(data)
         let sortedData = k.sort((a, b) => {
             return (a.rates[0][item] - b.rates[0][item])
