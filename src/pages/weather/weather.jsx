@@ -1,8 +1,6 @@
 import React from 'react'
-// import Header from '../header/header'
-// import Main from '../main/main'
-import Header from '../weather/header/header'
-import Main from '../weather/main/main'
+import Header from '../../components/weather/header/header'
+import Main from '../../components/weather/main/main'
 
 const Weather = () => {
   return (

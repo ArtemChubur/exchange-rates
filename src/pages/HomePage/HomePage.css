@@ -1,0 +1,29 @@
+.home{
+    background: url('https://usagif.com/wp-content/uploads/gif/thinking-emoji-28.gif');
+    background-size: 25%;
+    height: 100vh;
+
+}
+
+.question{
+    font-size: 700%;
+    text-align: center;
+    padding-top: 100px; 
+}
+
+.btn{
+    background: linear-gradient(135deg, #AD36CB 60%, #333333 30%);
+    width: 30%;
+    height: 20%;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+.btns{
+    margin: 6% 0 0 26%;
+}
+
+.exBtn{
+    margin-left: 50px;
+}

@@ -16,7 +16,7 @@
 }
 
 .reset_btn{
-    background: url('./reset_icon.png'), #AD36CB;
+    background: url('../../../media/reset_icon.png'), #AD36CB;
     background-position: center;
     background-size: 50px;
     border: none;
@@ -29,7 +29,7 @@
 }
 
 .search_btn{
-    background: url('./icon\ _search.png'), #AD36CB;
+    background: url('../../../media/icon\ _search.png'), #AD36CB;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 40px;
