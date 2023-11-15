@@ -31,7 +31,6 @@ const Main = () => {
 
     const sortByPriceMax = (item) => {
         handleSearchReset()
-        // getCurrent(setIsLoading, search, setData, banks)
         let k = data
         setWhatData(false)
         let sortedData = k.sort((a, b) => {
@@ -41,11 +40,9 @@ const Main = () => {
     }
 
     const sortByPriceMin = (item) => {
-        // getCurrent(setIsLoading, search, setData, banks)
         handleSearchReset()
         let k = data
         setWhatData(false)
-        // setData2(data)
         let sortedData = k.sort((a, b) => {
             return (a.rates[0][item] - b.rates[0][item])
         })
