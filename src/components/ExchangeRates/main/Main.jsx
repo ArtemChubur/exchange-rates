@@ -45,7 +45,7 @@ const Main = () => {
         let k = data
         // setWhatData(false)
         // setData2(data)
-        let sortedData = data2.sort((a, b) => {
+        let sortedData = k.sort((a, b) => {
             return (a.rates[0][item] - b.rates[0][item])
         })
         setData2(sortedData)
