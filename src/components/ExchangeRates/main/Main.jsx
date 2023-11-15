@@ -69,7 +69,10 @@ const Main = () => {
                         <img src={reset_icon} alt="" />
                     </button>
 
-                    <button className='search-btn' onClick={async () => await getCurrent(setIsLoading, search, setData, banks)}>
+                    <button className='search-btn' onClick={async () => {
+                        setWhatData(true)
+                        await getCurrent(setIsLoading, search, setData, banks)
+                        }}>
                         <img src={search_icon} alt="" />
                     </button>
 
