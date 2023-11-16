@@ -1,118 +1,28 @@
-.filtres{
-    background: linear-gradient(135deg, #AD36CB 60%, #333333 30%);
-    height: 80vh;
-    width: 47vh;
-    position: absolute;
-    right: 0;
-    
-}
-
-.pointer{
-    cursor: pointer;
-    margin-right: 10px;
-}
-
 .table{
-    border: 1px solid white;
-    background: linear-gradient(135deg, #AD36CB 60%, #333333 30%);
-    margin: 0 0 0 250px;
-}
-
-.stolbs{
-    border-left: 1px solid white;
-    border-bottom: 1px solid white;
-}
-
-.stolbs2{
-    border-bottom: 1px solid white;
-}
-
-.null{
-    padding-right: 20px;
-}
-
-.NumBanks{
-    text-align: center;
-    margin-top: 1%;
-}
-
-.NumBanks span{
-    border: 0.5px solid white;
-}
-
-.NumBanks span:hover{
+    /* background: linear-gradient(135deg, #AD36CB 60%, #333333 30%); */
     background-color: #333333;
-}
-
-.Sort-btn{
-    width: 50px;
-    position: absolute;
-    left: 190px;
-    background-color: #fff;
-    border: none;
+    width: 80%;
+    margin-left: 10%;
 
 }
 
-.buy{
-    margin-left: 5px;
+.tab-number{
+    width: 20px;
 }
 
-.buy2{
-    margin-left: 13px;
+.tabBack2{
+    background-color: #AD36CB;
+
 }
 
-.sell{
-    margin-left: 8px;
+.current-filters{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
 }
 
-.buy_btn{
-    margin-left: 5px;
-    width: 60px;
-    border-radius: 10px;
-}
+.filt_btn{
+    background-color: #AD36CB;
+    border-radius: 5px;
 
-.sell_btn{
-    margin-left: 5px;
-    width: 70px;
-    border-radius: 10px;
-}
-
-.close_btn{
-    background-color: rgba(51, 51, 51, 0);
-    border: none;
-}
-
-.loading{
-    font-size: 70px;
-    text-align: center;
-    margin: 250px 0 0 45%;
-    position: absolute;
-}
-
-.main_div{
-    margin-top: 20px;
-}
-
-.reset-btn{
-    width: 45px;
-    height: 45px;
-    position: absolute;
-    top: 38px;
-    border-radius: 10px;
-}
-
-.search-btn{
-    width: 45px;
-    position: absolute;
-    top: 38px;
-    left: 225px;
-    height: 45px;
-    border-radius: 10px;
-}
-
-.search_imp{
-    width: 180px;
-    height: 45px;
-    border-radius: 10px;
-    border: none;
 }
