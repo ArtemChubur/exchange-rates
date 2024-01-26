@@ -4,6 +4,7 @@
 
 ## Используемые API:
  [fx.kg](https://fx.kg/)
+ 
  [weatherapi.com](https://www.weatherapi.com/)
 
 ## Используемые библиотеки
